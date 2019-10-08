@@ -10,6 +10,9 @@ import { timeout } from 'q';
 })
 export class ServersComponent implements OnInit {
   allowNewServer=false;
+  customClass = "red";
+  statusCreatedServer = 'not created !';
+  serverName = '';
   constructor() {
     setTimeout(()=>{
        this.allowNewServer = true;
@@ -19,4 +22,10 @@ export class ServersComponent implements OnInit {
   ngOnInit() {
   }
  
+  onCreatedServer(){
+    this.statusCreatedServer = 'server is created';
+  }
+  onChangeServerName(event: Event){
+    this.serverName = (<HTMLInputElement>event.target).value;
+  }
 }

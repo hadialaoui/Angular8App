@@ -1,7 +1,11 @@
 <div class="container">
     <div class="panel">
-        <button class="btn btn-primary" [disabled]="!allowNewServer">Turn on</button>
-            <ul>
+        <label for="">Server name</label>
+        <input type="text" class="form-control" (input)="onChangeServerName($event)">
+        <p>{{serverName}}</p>
+        <button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreatedServer()">Turn on</button>
+        <p>{{statusCreatedServer}}</p>
+            <ul [class]="customClass">
                 <li><app-server></app-server></li>
                 <li><app-server></app-server></li>
             </ul>
